@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Error Solution</title>
+</head>
+<body>
+  <p>This is a paragraph.</p>
+  <div id="myDiv">
+    <p>This is another paragraph inside a div.</p>
+  </div>
+  <script>
+    // Solution: Check for the existence of an attribute before accessing it
+    let element = document.getElementById('myDiv');
+    let attributeValue = element.hasAttribute('id') ? element.getAttribute('id') : 'Attribute not found';
+    console.log(attributeValue); // Output: myDiv
+
+    //Solution: Prevent mismatched tags with careful coding and IDE assistance
+    let correctedElement = document.createElement('p'); // Correct the tag
+    correctedElement.textContent = 'This is a paragraph created correctly.';
+    document.body.appendChild(correctedElement);
+
+    // Solution: Only use known and supported tags or handle potential errors
+    try{
+        document.createElement('unknowntag'); // Might still cause unexpected behaviour
+    }catch(e){
+        console.error('Unknown tag encountered:', e);
+    }
+  </script>
+</body>
+</html>
