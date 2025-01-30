@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Error</title>
+</head>
+<body>
+  <p>This is a paragraph.</p>
+  <div id="myDiv">
+    <p>This is another paragraph inside a div.</p>
+  </div>
+  <script>
+    // Attempting to access a non-existent attribute
+    let element = document.getElementById('myDiv');
+    let nonExistentAttribute = element.getAttribute('nonExistent');
+    console.log(nonExistentAttribute); // Output: null, this is expected but not always handled gracefully
+
+    // Mismatched tag (uncommon but possible)
+    let myElement = document.createElement('<p');  // missing closing bracket
+    document.body.appendChild(myElement);
+
+    // Using an unknown HTML5 tag (e.g., typo, old browser)
+    document.createElement('unknowntag'); // no error in some browsers; unexpected behavior
+  </script>
+</body>
+</html>
